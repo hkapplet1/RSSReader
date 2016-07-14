@@ -75,12 +75,47 @@
                     <view key="view" contentMode="scaleToFill" id="eof-lV-pVS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7b-ZL-WOJ">
+                                <rect key="frame" x="8" y="73" width="560" height="45"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="38"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwK-sq-GvO">
+                                <rect key="frame" x="270" y="126" width="36" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0wx-vc-dnQ">
+                                <rect key="frame" x="188" y="155" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Lwj-gk-imL"/>
+                                    <constraint firstAttribute="height" constant="200" id="pCb-pJ-cTj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j7b-ZL-WOJ" firstAttribute="leading" secondItem="eof-lV-pVS" secondAttribute="leadingMargin" constant="-12" id="1Aq-RO-9Az"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j7b-ZL-WOJ" secondAttribute="trailing" constant="12" id="VkS-NO-GB8"/>
+                            <constraint firstItem="j7b-ZL-WOJ" firstAttribute="centerX" secondItem="cwK-sq-GvO" secondAttribute="centerX" id="dXB-I5-VUs"/>
+                            <constraint firstItem="cwK-sq-GvO" firstAttribute="top" secondItem="j7b-ZL-WOJ" secondAttribute="bottom" constant="8" id="ht9-QZ-ptn"/>
+                            <constraint firstItem="j7b-ZL-WOJ" firstAttribute="top" secondItem="zXN-zx-Kbz" secondAttribute="bottom" constant="53" id="vT2-5L-Laq"/>
+                            <constraint firstItem="0wx-vc-dnQ" firstAttribute="top" secondItem="cwK-sq-GvO" secondAttribute="bottom" constant="8" id="yTu-FF-LyP"/>
+                            <constraint firstItem="cwK-sq-GvO" firstAttribute="centerX" secondItem="0wx-vc-dnQ" secondAttribute="centerX" id="ye4-cD-c7K"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="new item" image="Top App Icon" id="aC0-Z6-xjs"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="feedURL" value="http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=1/json"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="artistLabel" destination="cwK-sq-GvO" id="7X0-fa-79S"/>
+                        <outlet property="imageView" destination="0wx-vc-dnQ" id="p8T-5m-2Gk"/>
+                        <outlet property="titleLabel" destination="j7b-ZL-WOJ" id="Mjq-EZ-iIm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e77-9d-hsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
