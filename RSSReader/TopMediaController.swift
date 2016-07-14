@@ -18,14 +18,17 @@ class TopMediaController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = NSURLRequest(URL: NSURL(string: feedURL)!)
+        print(request)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { response, data, error in
             if let jsonData = data,
                 feed = (try? NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers)) as? NSDictionary,
                 title = feed.valueForKeyPath("feed.entry.im:name.label") as? String,
                 artist = feed.valueForKeyPath("feed.entry.im:artist.label") as? String,
                 imageURLs = feed.valueForKeyPath("feed.entry.im:image") as? [NSDictionary] {
+                    print("if loop")
                     if let imageURL = imageURLs.last,
                         imageURLString = imageURL.valueForKeyPath("label") as? String {
+                        print(imageURLString)
                             self.loadImageFromURL(NSURL(string:imageURLString)!)
                     }
                 self.titleLabel.text = title
@@ -34,6 +37,7 @@ class TopMediaController: UIViewController {
                 self.artistLabel.hidden = false
                 
             }
+            print("endif loop")
         }
     }
     
